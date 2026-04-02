@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "Quelle est la capitale de la France ?",
+    "options": ["Lyon", "Paris", "Marseille", "Bordeaux"],
+    "answer": "Paris",
+    "imageName": "paris"
+  },
+  {
+    "id": 2,
+    "question": "Quel pays possède cette forme géographique ?",
+    "options": ["Espagne", "Italie", "Grèce", "Portugal"],
+    "answer": "Italie",
+    "imageName": "italie"
+  },
+  {
+    "id": 3,
+    "question": "Dans quelle ville se trouve ce monument célèbre ?",
+    "options": ["Londres", "Berlin", "Rome", "Barcelone"],
+    "answer": "Rome",
+    "imageName": "colisee"
+  }
+]

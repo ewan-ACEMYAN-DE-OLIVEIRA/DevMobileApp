@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, Pressable } from 'react-native';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
@@ -73,6 +73,13 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
+        
+        <Link href="../quizz" asChild>
+          <Pressable style={styles.quizzButton}>
+            <ThemedText type="defaultSemiBold" style={styles.buttonText}>Lancer le Quiz 🚀</ThemedText>
+          </Pressable>
+        </Link>
+        
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -95,4 +102,20 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
-});
+  quizzButton: {
+    backgroundColor: '#007AFF',
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+  },
+})
+;
