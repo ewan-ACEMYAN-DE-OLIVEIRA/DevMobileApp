@@ -1,13 +1,15 @@
 [
   {
     "id": 1,
+    "type": "text",
     "question": "Quelle est la capitale de la France ?",
     "options": ["Lyon", "Paris", "Marseille", "Bordeaux"],
     "answer": "Paris",
-    "imageName": "paris"
+    "imageName": "tour_eiffel"
   },
   {
     "id": 2,
+    "type": "text",
     "question": "Quel pays possède cette forme géographique ?",
     "options": ["Espagne", "Italie", "Grèce", "Portugal"],
     "answer": "Italie",
@@ -15,9 +17,17 @@
   },
   {
     "id": 3,
+    "type": "text",
     "question": "Dans quelle ville se trouve ce monument célèbre ?",
     "options": ["Londres", "Berlin", "Rome", "Barcelone"],
     "answer": "Rome",
     "imageName": "colisee"
+  },
+  {
+    "id": 4,
+    "type": "image",
+    "question": "Lequel de ces monuments est la Tour Eiffel ?",
+    "options": ["tour_eiffel", "colisee", "italie", "taj_mahal"],
+    "answer": "tour_eiffel"
   }
 ]

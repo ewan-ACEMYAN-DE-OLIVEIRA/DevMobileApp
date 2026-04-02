@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, Alert, Platform } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Alert, Platform, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// Import des données
 import quizzDataRaw from '../data/quizz.json';
 const quizzData = quizzDataRaw as any[];
 
-// Mapping des images
 const IMAGES_QUIZZ: { [key: string]: any } = {
-  "paris": require('../assets/images/paris.jpg'),
+  "tour_eiffel": require('../assets/images/tour_eiffel.jpg'),
   "italie": require('../assets/images/italie.jpg'),
   "colisee": require('../assets/images/colisee.jpg'),
+  "taj_mahal": require('../assets/images/taj_mahal.jpg'),
 };
 
-const TIMER_DURATION = 30; // secondes
+const TIMER_DURATION = 60;
+const IMAGE_OPTION_SIZE = 300;
 
 export default function QuizPage() {
   const router = useRouter();
@@ -22,7 +22,6 @@ export default function QuizPage() {
   const [timer, setTimer] = useState(TIMER_DURATION);
   const hasEnded = useRef(false);
 
-  // Un seul intervalle créé au montage — jamais recréé
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prev) => prev - 1);
@@ -30,7 +29,6 @@ export default function QuizPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Séparé : réaction quand le timer atteint 0
   useEffect(() => {
     if (timer > 0 || hasEnded.current) return;
     hasEnded.current = true;
@@ -60,100 +58,173 @@ export default function QuizPage() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
-      {/* Header avec Timer */}
       <View style={styles.header}>
         <Text style={[styles.timer, timer <= 10 && { color: 'red' }]}>
-          Temps : {timer}s
+          {timer}s
         </Text>
       </View>
 
-      {/* Contenu du Quiz */}
-      <View style={styles.quizBox}>
-        <Image 
-          source={IMAGES_QUIZZ[currentQuestion.imageName]} 
-          style={styles.image} 
-          resizeMode="contain"
-        />
-        
-        <Text style={styles.question}>{currentQuestion.question}</Text>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.quizBox}>
 
-        {currentQuestion.options.map((opt: string, i: number) => (
-          <TouchableOpacity 
-            key={i} 
-            style={styles.optionBtn} 
-            onPress={() => handleAnswer(opt)}
-          >
-            <Text style={styles.optionText}>{opt}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+          {/* Image principale — type texte uniquement */}
+          {currentQuestion.type === 'text' && currentQuestion.imageName && (
+            <View style={styles.mainImageWrapper}>
+              <Image
+                source={IMAGES_QUIZZ[currentQuestion.imageName]}
+                style={styles.mainImage}
+                resizeMode="contain"
+              />
+            </View>
+          )}
 
-      {/* Bouton Quitter */}
+          <Text style={styles.question}>{currentQuestion.question}</Text>
+
+          {/* Réponses texte */}
+          {currentQuestion.type !== 'image' && (
+            <View style={styles.column}>
+              {currentQuestion.options.map((opt: string, i: number) => (
+                <TouchableOpacity
+                  key={i}
+                  onPress={() => handleAnswer(opt)}
+                  style={styles.textOption}
+                >
+                  <Text style={styles.optionText}>{opt}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
+
+          {/* Réponses image — grille 2x2 en px fixes */}
+          {currentQuestion.type === 'image' && (
+            <View style={styles.imageGrid}>
+              {currentQuestion.options.map((opt: string, i: number) => (
+                <TouchableOpacity
+                  key={i}
+                  onPress={() => handleAnswer(opt)}
+                  style={styles.imageOption}
+                >
+                  <Image
+                    source={IMAGES_QUIZZ[opt]}
+                    style={styles.optionImg}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
+
+        </View>
+      </ScrollView>
+
       <TouchableOpacity onPress={() => router.replace('/(tabs)')} style={styles.backBtn}>
-        <Text style={{color: 'white', paddingHorizontal: 20, paddingVertical: 5}}>Quitter</Text>
+        <Text style={{ color: 'white', paddingHorizontal: 20, paddingVertical: 5 }}>Quitter</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: '#f5f5f5' 
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F7FA',
   },
-  header: { 
-    padding: 20, 
-    alignItems: 'center' 
+  scrollContent: {
+    flexGrow: 1,
+    paddingBottom: 20,
   },
-  timer: { 
-    fontSize: 28, 
-    fontWeight: 'bold',
-    fontVariant: ['tabular-nums']
-  },
-  quizBox: { 
-    padding: 20, 
+  header: {
+    padding: 20,
     alignItems: 'center',
-    width: '100%'
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEE',
   },
-  image: { 
-    width: '100%', 
-    height: 220, 
-    borderRadius: 15, 
-    marginBottom: 20,
-    backgroundColor: '#ddd'
+  timer: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    fontVariant: ['tabular-nums'],
   },
-  question: { 
-    fontSize: 22, 
-    fontWeight: 'bold', 
-    marginBottom: 25, 
+  quizBox: {
+    padding: 20,
+    alignItems: 'center',
+    width: '100%',
+  },
+
+  mainImageWrapper: {
+    width: '100%',
+    maxWidth: 480,
+    height: 200,
+    borderRadius: 15,
+    overflow: 'hidden',
+    marginBottom: 10,
+    backgroundColor: 'transparent',
+    alignSelf: 'center',
+  },
+  mainImage: {
+    width: '100%',
+    height: '100%',
+  },
+
+  question: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 25,
+    marginTop: 15,
     textAlign: 'center',
-    color: '#333'
+    color: '#1A1A1A',
+    lineHeight: 28,
   },
-  optionBtn: { 
-    backgroundColor: '#fff', 
-    width: '100%', 
-    padding: 18, 
-    borderRadius: 12, 
-    marginBottom: 12, 
-    borderWidth: 1, 
+
+  column: {
+    width: '100%',
+  },
+  textOption: {
+    backgroundColor: '#fff',
+    width: '100%',
+    padding: 18,
+    borderRadius: 12,
+    marginBottom: 12,
+    borderWidth: 1,
     borderColor: '#eee',
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     elevation: 2,
   },
-  optionText: { 
-    textAlign: 'center', 
-    fontSize: 18, 
+  optionText: {
+    textAlign: 'center',
+    fontSize: 18,
     fontWeight: '500',
-    color: '#007AFF' 
+    color: '#007AFF',
   },
-  backBtn: { 
-    marginTop: 'auto', 
-    marginBottom: 20, 
-    alignSelf: 'center', 
-    backgroundColor: '#ff4444', 
+
+  imageGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 12,
+    width: IMAGE_OPTION_SIZE * 2 + 12,
+  },
+  imageOption: {
+    width: IMAGE_OPTION_SIZE,
+    height: IMAGE_OPTION_SIZE,
+    borderRadius: 12,
+    overflow: 'hidden',
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    elevation: 0,
+  },
+  optionImg: {
+    width: '100%',
+    height: '100%',
+  },
+
+  backBtn: {
+    marginBottom: 20,
+    alignSelf: 'center',
+    backgroundColor: '#ff4444',
     borderRadius: 8,
-    overflow: 'hidden'
-  }
+    overflow: 'hidden',
+  },
 });
