@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Alert, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
-// Importation du bon SafeAreaView
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Import des données
@@ -15,22 +14,37 @@ const IMAGES_QUIZZ: { [key: string]: any } = {
   "colisee": require('../assets/images/colisee.jpg'),
 };
 
+const TIMER_DURATION = 30; // secondes
+
 export default function QuizPage() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(TIMER_DURATION);
+  const hasEnded = useRef(false);
 
-  // Timer de 1 minute
+  // Un seul intervalle créé au montage — jamais recréé
   useEffect(() => {
-    if (timer <= 0) {
-        // Optionnel : ce qu'il se passe quand le temps est écoulé
-        return;
-    };
-    const interval = setInterval(() => setTimer(t => t - 1), 1000);
+    const interval = setInterval(() => {
+      setTimer((prev) => prev - 1);
+    }, 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  // Séparé : réaction quand le timer atteint 0
+  useEffect(() => {
+    if (timer > 0 || hasEnded.current) return;
+    hasEnded.current = true;
+
+    if (Platform.OS === 'web') {
+      alert("Temps écoulé !");
+      router.replace('/(tabs)');
+    } else {
+      Alert.alert("Temps écoulé !", "Désolé, le temps est fini.", [
+        { text: "OK", onPress: () => router.replace('/(tabs)') }
+      ]);
+    }
   }, [timer]);
 
-  // Sécurité : si on a fini ou si les données ne sont pas chargées
   const currentQuestion = quizzData[currentIndex];
 
   const handleAnswer = (choice: string) => {
@@ -38,7 +52,7 @@ export default function QuizPage() {
       setCurrentIndex(currentIndex + 1);
     } else {
       alert("Quizz terminé !");
-      router.back();
+      router.replace('/(tabs)');
     }
   };
 
@@ -55,7 +69,6 @@ export default function QuizPage() {
 
       {/* Contenu du Quiz */}
       <View style={styles.quizBox}>
-        {/* Affichage de l'image via le mapping */}
         <Image 
           source={IMAGES_QUIZZ[currentQuestion.imageName]} 
           style={styles.image} 
@@ -76,7 +89,7 @@ export default function QuizPage() {
       </View>
 
       {/* Bouton Quitter */}
-      <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+      <TouchableOpacity onPress={() => router.replace('/(tabs)')} style={styles.backBtn}>
         <Text style={{color: 'white', paddingHorizontal: 20, paddingVertical: 5}}>Quitter</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -95,7 +108,7 @@ const styles = StyleSheet.create({
   timer: { 
     fontSize: 28, 
     fontWeight: 'bold',
-    fontVariant: ['tabular-nums'] // Évite que le texte bouge quand les chiffres changent
+    fontVariant: ['tabular-nums']
   },
   quizBox: { 
     padding: 20, 
@@ -107,7 +120,7 @@ const styles = StyleSheet.create({
     height: 220, 
     borderRadius: 15, 
     marginBottom: 20,
-    backgroundColor: '#ddd' // Fond gris en attendant l'image
+    backgroundColor: '#ddd'
   },
   question: { 
     fontSize: 22, 
@@ -124,7 +137,6 @@ const styles = StyleSheet.create({
     marginBottom: 12, 
     borderWidth: 1, 
     borderColor: '#eee',
-    // Petite ombre pour le relief
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
