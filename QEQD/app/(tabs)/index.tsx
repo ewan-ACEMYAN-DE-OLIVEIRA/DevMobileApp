@@ -1,98 +1,105 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
 import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+
+const themes = [
+  { id: 'personnalite', label: 'Personnalité', icon: '👤', 'bgColors':[ '#3A1C4A', '#5A2A4A'] },
+  { id: 'geographie',  label: 'Géographie',  icon: '🌍',  'bgColors':[ '#234B6E', '#368A91'] },
+  { id: 'cinema',    label: 'Cinéma',    icon: '🎥', 'bgColors':[ '#4A3F2A', '#7A6B3A'] },
+  { id: 'sport',  label: 'Sport',  icon: '⚽', 'bgColors':[ '#3A1C6A', '#5D33A6'] },
+];
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
+    <ScrollView contentContainerStyle={styles.scrollContent}>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title" style={{ color: '#ffffff' }}>Bienvenue!</ThemedText>
         <HelloWave />
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+        <ThemedText type="subtitle" style={{ color: '#ffffff' }}>Sélectionnez un thème</ThemedText>
       </ThemedView>
-    </ParallaxScrollView>
+
+      <View style={styles.grid}>
+        {themes.map((theme) => (
+          <TouchableOpacity
+            key={theme.id}
+            style={styles.cardWrapper}
+            onPress={() => router.push({ pathname: '/quiz', params: { themeId: theme.id } })}
+            activeOpacity={0.8}
+          >
+            <LinearGradient
+              colors={theme.bgColors as [string, string]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.card}
+            >
+              <ThemedText style={styles.cardIcon}>{theme.icon}</ThemedText>
+              <ThemedText style={styles.cardLabel}>{theme.label}</ThemedText>
+            </LinearGradient>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollContent: {
+    flexGrow: 1,
+    paddingBottom: 40,
+    backgroundColor: '#12142B',
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
+    gap: 12,
+    paddingTop: 60,
+    paddingBottom: 16,
+    backgroundColor: '#12142B',
   },
   stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+    alignItems: 'center',
+    marginBottom: 24,
+    backgroundColor: '#12142B',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 16,
+    paddingHorizontal: 16,
+  },
+  cardWrapper: {
+    width: '44%',
+    aspectRatio: 1,
+    borderRadius: 16,
+    overflow: 'hidden',      // ← indispensable pour que le gradient respecte le borderRadius
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+  card: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+  },
+  cardIcon: {
+    fontSize: 42,
+  },
+  cardLabel: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
   },
 });

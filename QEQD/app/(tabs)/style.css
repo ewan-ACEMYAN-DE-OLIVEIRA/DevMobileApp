@@ -1,0 +1,106 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Georgia', serif;
+  min-height: 100vh;
+}
+
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  margin-bottom: 0; /* annule le margin-bottom du h1 */
+  border: none;     /* annule le border-bottom du h1 */
+  padding: 0;
+}
+
+.app h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #666;
+  margin: 2rem 0 1rem;
+}
+
+.accueil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1.5rem;
+}
+
+.accueil h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  color: #000000;
+  border: none;
+}
+
+.accueil .import-btn {
+  padding: 0.7rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+}
+
+button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #999;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px; 
+  flex-wrap: wrap; 
+}
+
+button.actif {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+select {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: 'Georgia', serif;
+  font-size: 0.85rem;
+}
+
