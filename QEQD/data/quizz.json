@@ -60,7 +60,7 @@
     "id": 8,
     "category": "Personnalités",
     "mode": "drag_and_drop",
-    "imageName": "react-logo", 
+    "imageName": "moliere",
     "question": "Associe cette description à l'auteur :",
     "options": ["A écrit des pièces où les médecins sont tous des charlatans.", "A rédigé les Misérables en pleurant.", "A inventé Roméo et Juliette."],
     "answer": "A écrit des pièces où les médecins sont tous des charlatans."
@@ -160,7 +160,7 @@
     "id": 20,
     "category": "Géographie",
     "mode": "drag_and_drop",
-    "imageName": "react-logo",
+    "imageName": "japon",
     "question": "De quel pays parle-t-on ?",
     "options": ["Archipel où les trains sont toujours à l'heure.", "Pays du sirop d'érable.", "Région célèbre pour ses frites."],
     "answer": "Archipel où les trains sont toujours à l'heure."
@@ -259,7 +259,7 @@
     "id": 32,
     "category": "Cinéma",
     "mode": "drag_and_drop",
-    "imageName": "react-logo",
+    "imageName": "matrix",
     "question": "Film où l'on doit choisir de manger une pilule bleue ou une pilule rouge.",
     "options": ["Matrix", "Inception", "Alice au pays des merveilles"],
     "answer": "Matrix"
@@ -358,7 +358,7 @@
     "id": 44,
     "category": "Sport",
     "mode": "drag_and_drop",
-    "imageName": "react-logo",
+    "imageName": "natation",
     "question": "Associe la description au bon sport :",
     "options": ["Aller compter les carreaux au fond d'une piscine chlorée.", "Courir très vite sans raison apparente.", "Pousser des objets lourds pour gonfler ses bras."],
     "answer": "Aller compter les carreaux au fond d'une piscine chlorée."
