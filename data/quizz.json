@@ -1,0 +1,398 @@
+[
+  {
+    "id": 1,
+    "category": "Personnalités",
+    "mode": "drag_and_drop",
+    "imageName": "napoleon",
+    "question": "Qui est sur cette image ?",
+    "options": ["A peint une femme qui sourit à moitié.", "A conquis l'Europe mais complexait sur sa taille.", "A inventé la relativité en tirant la langue."],
+    "answer": "A conquis l'Europe mais complexait sur sa taille."
+  },
+  {
+    "id": 2,
+    "category": "Personnalités",
+    "mode": "qcm",
+    "question": "Je suis un génie de la physique, j'ai trouvé E=mc², et je détestais porter des chaussettes. Qui suis-je ?",
+    "options": ["Galilée", "Isaac Newton", "Albert Einstein", "Stephen Hawking"],
+    "answer": "Albert Einstein"
+  },
+  {
+    "id": 3,
+    "category": "Personnalités",
+    "mode": "qcm",
+    "question": "J'ai passé ma vie à peindre des tournesols et je me suis coupé l'oreille lors d'une dispute. Qui suis-je ?",
+    "options": ["Léonard de Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet"],
+    "answer": "Vincent van Gogh"
+  },
+  {
+    "id": 4,
+    "category": "Personnalités",
+    "mode": "swipe",
+    "question": "Cléopâtre était d'origine égyptienne.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 5,
+    "category": "Personnalités",
+    "mode": "qcm",
+    "question": "J'ai libéré la France des Anglais mais j'ai fini sur un grand barbecue non désiré. Qui suis-je ?",
+    "options": ["Jeanne d'Arc", "Marie-Antoinette", "Olympe de Gouges", "Catherine de Médicis"],
+    "answer": "Jeanne d'Arc"
+  },
+  {
+    "id": 6,
+    "category": "Personnalités",
+    "mode": "swipe",
+    "question": "Wolfgang Amadeus Mozart a composé sa première œuvre à l'âge de 5 ans.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Vrai"
+  },
+  {
+    "id": 7,
+    "category": "Personnalités",
+    "mode": "qcm",
+    "question": "J'ai été le premier homme à marcher sur la Lune en faisant 'un petit pas'. Qui suis-je ?",
+    "options": ["Buzz l'Éclair", "Thomas Pesquet", "Neil Armstrong", "Youri Gagarine"],
+    "answer": "Neil Armstrong"
+  },
+  {
+    "id": 8,
+    "category": "Personnalités",
+    "mode": "drag_and_drop",
+    "imageName": "moliere",
+    "question": "Associe cette description à l'auteur :",
+    "options": ["A écrit des pièces où les médecins sont tous des charlatans.", "A rédigé les Misérables en pleurant.", "A inventé Roméo et Juliette."],
+    "answer": "A écrit des pièces où les médecins sont tous des charlatans."
+  },
+  {
+    "id": 9,
+    "category": "Personnalités",
+    "mode": "swipe",
+    "question": "Marilyn Monroe était naturellement blonde.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 10,
+    "category": "Personnalités",
+    "mode": "qcm",
+    "question": "Chanteur mythique du groupe Queen, connu pour sa voix incroyable et sa moustache de compétition.",
+    "options": ["Mick Jagger", "David Bowie", "Elton John", "Freddie Mercury"],
+    "answer": "Freddie Mercury"
+  },
+  {
+    "id": 11,
+    "category": "Personnalités",
+    "mode": "swipe",
+    "question": "Charlie Chaplin a gagné un concours de sosies de Charlie Chaplin.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 12,
+    "category": "Personnalités",
+    "mode": "qcm",
+    "question": "J'ai coupé énormément de têtes pendant la Révolution française avant de perdre la mienne.",
+    "options": ["Danton", "Robespierre", "Louis XVI", "Marat"],
+    "answer": "Robespierre"
+  },
+
+  {
+    "id": 13,
+    "category": "Géographie",
+    "mode": "drag_and_drop",
+    "imageName": "terre",
+    "question": "Associe cette image à sa description :",
+    "options": ["Un gros caillou rouge sans oxygène.", "La seule planète avec du Wi-Fi (pour l'instant).", "Une étoile qui pique les yeux quand on la regarde."],
+    "answer": "La seule planète avec du Wi-Fi (pour l'instant)."
+  },
+  {
+    "id": 14,
+    "category": "Géographie",
+    "mode": "qcm",
+    "question": "C'est un pays en forme de botte où les gens parlent avec les mains et mangent des pizzas.",
+    "options": ["L'Espagne", "Le Mexique", "L'Italie", "La Grèce"],
+    "answer": "L'Italie"
+  },
+  {
+    "id": 15,
+    "category": "Géographie",
+    "mode": "drag_and_drop",
+    "imageName": "sahara",
+    "question": "Où se trouve-t-on ?",
+    "options": ["L'endroit le plus froid du monde.", "Une forêt tropicale très humide.", "La plus grande litière pour chat de la planète."],
+    "answer": "La plus grande litière pour chat de la planète."
+  },
+  {
+    "id": 16,
+    "category": "Géographie",
+    "mode": "swipe",
+    "question": "Le Mont Blanc est le plus haut sommet du monde.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 17,
+    "category": "Géographie",
+    "mode": "qcm",
+    "question": "Pays connu pour ses kangourous, ses koalas et ses araignées géantes qui font très peur.",
+    "options": ["Australie", "Nouvelle-Zélande", "Brésil", "Afrique du Sud"],
+    "answer": "Australie"
+  },
+  {
+    "id": 18,
+    "category": "Géographie",
+    "mode": "swipe",
+    "question": "La Grande Muraille de Chine est visible depuis la Lune à l'œil nu.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 19,
+    "category": "Géographie",
+    "mode": "qcm",
+    "question": "Quel est le plus petit pays du monde (et accessoirement le plus rempli de cardinaux) ?",
+    "options": ["Monaco", "Le Vatican", "Andorre", "San Marino"],
+    "answer": "Le Vatican"
+  },
+  {
+    "id": 20,
+    "category": "Géographie",
+    "mode": "drag_and_drop",
+    "imageName": "japon",
+    "question": "De quel pays parle-t-on ?",
+    "options": ["Archipel où les trains sont toujours à l'heure.", "Pays du sirop d'érable.", "Région célèbre pour ses frites."],
+    "answer": "Archipel où les trains sont toujours à l'heure."
+  },
+  {
+    "id": 21,
+    "category": "Géographie",
+    "mode": "qcm",
+    "question": "Montagne célèbre qui a accidentellement coulé la ville de Pompéi sous la lave.",
+    "options": ["L'Etna", "Le Kilimandjaro", "Le Mont Blanc", "Le Vésuve"],
+    "answer": "Le Vésuve"
+  },
+  {
+    "id": 22,
+    "category": "Géographie",
+    "mode": "swipe",
+    "question": "Le Pôle Nord est situé sur un continent de terre solide sous la glace.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 23,
+    "category": "Géographie",
+    "mode": "qcm",
+    "question": "Capitale très pluvieuse où l'on boit du thé à 17h avec le Roi.",
+    "options": ["Londres", "Dublin", "Édimbourg", "Sydney"],
+    "answer": "Londres"
+  },
+  {
+    "id": 24,
+    "category": "Géographie",
+    "mode": "swipe",
+    "question": "Le Nil est le fleuve le plus long d'Europe.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+
+  {
+    "id": 25,
+    "category": "Cinéma",
+    "mode": "drag_and_drop",
+    "imageName": "realisateur",
+    "question": "Que fait cette personne ?",
+    "options": ["Mange du pop-corn en regardant un écran vert toute la journée.", "Crie 'Coupez !' même quand il prépare une salade chez lui.", "Court partout avec un micro géant poilu."],
+    "answer": "Crie 'Coupez !' même quand il prépare une salade chez lui."
+  },
+  {
+    "id": 26,
+    "category": "Cinéma",
+    "mode": "qcm",
+    "question": "Je respire très fort dans un masque noir et j'ai des problèmes relationnels avec mon fils.",
+    "options": ["Spider-Man", "Dark Vador", "Batman", "Harry Potter"],
+    "answer": "Dark Vador"
+  },
+  {
+    "id": 27,
+    "category": "Cinéma",
+    "mode": "qcm",
+    "question": "Quel métier consiste à être payé pour sauter d'une voiture en flammes à la place d'une star douillette ?",
+    "options": ["Maquilleur", "Producteur", "Cascadeur", "Scénariste"],
+    "answer": "Cascadeur"
+  },
+  {
+    "id": 28,
+    "category": "Cinéma",
+    "mode": "swipe",
+    "question": "Leonardo DiCaprio a gagné son premier Oscar pour son rôle dans Titanic.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 29,
+    "category": "Cinéma",
+    "mode": "qcm",
+    "question": "Je suis un espion britannique qui aime son martini 'au shaker, pas à la cuillère'.",
+    "options": ["Ethan Hunt", "Jason Bourne", "Austin Powers", "James Bond"],
+    "answer": "James Bond"
+  },
+  {
+    "id": 30,
+    "category": "Cinéma",
+    "mode": "swipe",
+    "question": "Steven Spielberg est le réalisateur du premier Jurassic Park.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Vrai"
+  },
+  {
+    "id": 31,
+    "category": "Cinéma",
+    "mode": "qcm",
+    "question": "Film où un gros paquebot coule à cause d'un glaçon, et où il y avait clairement de la place pour deux sur cette porte !",
+    "options": ["Les Dents de la Mer", "Titanic", "Poséidon", "Avatar"],
+    "answer": "Titanic"
+  },
+  {
+    "id": 32,
+    "category": "Cinéma",
+    "mode": "drag_and_drop",
+    "imageName": "matrix",
+    "question": "Film où l'on doit choisir de manger une pilule bleue ou une pilule rouge.",
+    "options": ["Matrix", "Inception", "Alice au pays des merveilles"],
+    "answer": "Matrix"
+  },
+  {
+    "id": 33,
+    "category": "Cinéma",
+    "mode": "qcm",
+    "question": "On ne parle PAS de ce club. La première règle est de ne pas en parler. Quel est ce film ?",
+    "options": ["Pulp Fiction", "Le Parrain", "Fight Club", "Seven"],
+    "answer": "Fight Club"
+  },
+  {
+    "id": 34,
+    "category": "Cinéma",
+    "mode": "swipe",
+    "question": "Tom Cruise réalise la très grande majorité de ses propres cascades.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Vrai"
+  },
+  {
+    "id": 35,
+    "category": "Cinéma",
+    "mode": "qcm",
+    "question": "Premier grand film d'animation 3D qui met en scène des jouets qui prennent vie quand tu as le dos tourné.",
+    "options": ["Shrek", "Toy Story", "Cars", "Monstres & Cie"],
+    "answer": "Toy Story"
+  },
+  {
+    "id": 36,
+    "category": "Cinéma",
+    "mode": "swipe",
+    "question": "Indiana Jones a une peur panique des araignées.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+
+  {
+    "id": 37,
+    "category": "Sport",
+    "mode": "drag_and_drop",
+    "imageName": "sportif",
+    "question": "Définition de cette activité :",
+    "options": ["Rester assis devant un écran avec une manette.", "Transpirer volontairement pour le plaisir. Concept très étrange.", "Dormir 12 heures par jour pour récupérer d'une sieste."],
+    "answer": "Transpirer volontairement pour le plaisir. Concept très étrange."
+  },
+  {
+    "id": 38,
+    "category": "Sport",
+    "mode": "qcm",
+    "question": "On tape très fort dans une balle jaune avec une raquette tout en poussant des cris étranges.",
+    "options": ["Le Football", "Le Tennis", "Le Golf", "Le Ping-Pong"],
+    "answer": "Le Tennis"
+  },
+  {
+    "id": 39,
+    "category": "Sport",
+    "mode": "qcm",
+    "question": "22 personnes courent après un ballon pendant 90 minutes et font semblant d'avoir mal s'ils sont effleurés.",
+    "options": ["Le Rugby", "Le Basket-ball", "Le Football", "Le Volley-ball"],
+    "answer": "Le Football"
+  },
+  {
+    "id": 40,
+    "category": "Sport",
+    "mode": "swipe",
+    "question": "Au basketball, un tir réussi de l'autre côté du terrain rapporte 4 points.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 41,
+    "category": "Sport",
+    "mode": "qcm",
+    "question": "Compétition estivale où l'on fait du vélo pendant des semaines dans toute la France pour gagner un maillot jaune.",
+    "options": ["Le Tour de France", "Le Giro", "La Vuelta", "Paris-Roubaix"],
+    "answer": "Le Tour de France"
+  },
+  {
+    "id": 42,
+    "category": "Sport",
+    "mode": "swipe",
+    "question": "Un marathon officiel fait exactement 42,195 km.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Vrai"
+  },
+  {
+    "id": 43,
+    "category": "Sport",
+    "mode": "qcm",
+    "question": "Sport de combat où l'on porte de gros gants en cuir et où l'on essaie de mettre K.O. l'adversaire.",
+    "options": ["Le Judo", "L'Escrime", "La Boxe", "Le Karaté"],
+    "answer": "La Boxe"
+  },
+  {
+    "id": 44,
+    "category": "Sport",
+    "mode": "drag_and_drop",
+    "imageName": "natation",
+    "question": "Associe la description au bon sport :",
+    "options": ["Aller compter les carreaux au fond d'une piscine chlorée.", "Courir très vite sans raison apparente.", "Pousser des objets lourds pour gonfler ses bras."],
+    "answer": "Aller compter les carreaux au fond d'une piscine chlorée."
+  },
+  {
+    "id": 45,
+    "category": "Sport",
+    "mode": "qcm",
+    "question": "Jeu de patience où l'on essaie de rentrer une toute petite balle blanche dans des trous très éloignés avec un bâton en métal.",
+    "options": ["Le Golf", "Le Cricket", "Le Baseball", "Le Polo"],
+    "answer": "Le Golf"
+  },
+  {
+    "id": 46,
+    "category": "Sport",
+    "mode": "swipe",
+    "question": "Usain Bolt détient le record du monde du 100m en courant en marche arrière.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Faux"
+  },
+  {
+    "id": 47,
+    "category": "Sport",
+    "mode": "qcm",
+    "question": "Sport olympique atypique où l'on doit glisser une grosse pierre polie sur la glace en balayant très fort devant elle.",
+    "options": ["Le Bobsleigh", "Le Patinage artistique", "Le Hockey", "Le Curling"],
+    "answer": "Le Curling"
+  },
+  {
+    "id": 48,
+    "category": "Sport",
+    "mode": "swipe",
+    "question": "Le nageur américain Michael Phelps a gagné plus de 20 médailles d'or olympiques dans sa carrière.",
+    "options": ["Faux", "Vrai"],
+    "answer": "Vrai"
+  }
+]
